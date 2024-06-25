@@ -7,8 +7,8 @@
     <title>NEVER</title>
     <style>
         html, body {
-            margin: 0;
-            padding: 0;
+            margin: 0px;
+            padding: 0px;
         }
 
         #wrap{
@@ -17,20 +17,30 @@
         #wrap-center{
             width: 1280px;
             display: inline-block;
-            background-color: yellow;
+            background-color: brown;
         }
-        #main {
-            height: 2000px;
+        #header{
+            text-align: left;
         }
         #header-hamburger {
             margin-top: 18px;
-            width: 46px;
-            height: 46px;
-            background-image: url(./sp_main.png);
-            background-size: ;
-            background-repeat: no-repeat;
-            background-position: ;
+            padding: 10px;
+            display: inline-block;
+        
+        }
 
+        #header-hamburger>div {
+            width: 20px;
+            height: 20px;
+            background-image: url(./sp_main.png);
+            background-size: 424px 402px;
+            background-repeat: no-repeat;
+            background-position: -303px -143px;
+            padding: 10px;
+        }
+
+        #main {
+            height: 2000px;
         }
     </style>
 </head>
@@ -38,7 +48,10 @@
     <div id="wrap">
         <div id="wrap-center">
             <div id="header">
-                <div id="header-hamburger"></div>
+                <div id="header-hamburger">
+                    <div></div>
+                </div>
+                
             </div>
             <div id="search"></div>
             <div id="nav"></div>
