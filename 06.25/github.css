@@ -121,17 +121,32 @@
     justify-content:flex-start;
  
 }
-.input>#username, .input>#email, .input>#password{
-    width: 200px
+#content2>input{
+    width: 300px;
+    height: 50px;
+    border: none;
+    outline: none;
+    margin-left: 30px;
+    position: relative;
 }
-.label>#username, .label>#email, .label>#password{
-    padding: 10px;
+#content2>input:focus-within{
+    width: 300px;
+    height: 45px;
+    border: 1px solid rgb(42, 81, 255);
+    outline: none;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+#content2>label{
+    position: relative;
     width: 100px;
-    height: 30px;
+    height: 15px;
     position: relative;
     margin-left: 30px;
 }
-
+#username{
+    padding-top: 30px;
+}
 
 #footer{
     background-color:aqua;
