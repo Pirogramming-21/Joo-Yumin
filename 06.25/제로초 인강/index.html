@@ -325,7 +325,22 @@
                     height: 52px;
                     padding: 6px 0 6px 12px;
                     display: inline-block;
+                    position: relative;
                 }
+                #search-svg::after{
+                    display: none;
+                }
+                #search>form:focus-within #search-svg::after{
+                    content:'';
+                    width: 1px;
+                    height: 20px;
+                    background-color: #e4e4e4;
+                    right:0;
+                    top:0;
+                    position: absolute;
+                    display: inline-block;
+                }
+                
                 #search-right{
                     padding: 6px 6px 6px 0;
                 }
