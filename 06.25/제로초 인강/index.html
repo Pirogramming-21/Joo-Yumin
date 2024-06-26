@@ -373,30 +373,26 @@
                 </form>
             </div>
             <style>
-                #nav{
-                    width: 1652px;
-                    height: 380px;
-                }
-                #nav-content{
-                    display: flex;
-                    position: relative;
-                    width: 278px;
+                #nav {
                     height: 206px;
-                    padding: 24px 0 37px;
-                    margin: auto;
-                    
                 }
-                #nav-content ul{
+                
+                #nav-content > ul{
                     position: relative;
                     list-style-type: none;
                     display: flex;
                     flex-wrap: wrap;
                     padding:0;
                     margin:0;
+                    width: 278px;
+                    height: 206px;
+                    padding: 24px 0 37px;
+                    margin: auto;
                 }
-                
-                #nav-content li {
-                    
+                ul > li{
+                    flex-wrap: wrap;
+                    width: 40px;
+                    flex:1;
                 }
                 #nav-content a{
                     text-decoration: none;
@@ -419,31 +415,34 @@
 
             <div id="nav">
                 <div id="nav-content">
+                    
                     <ul>
-                        <li>
-                            <a href="https://s.pstatic.net/static/www/mobile/edit/20230508_0/upload_1683512720230Vr2gk.png">
-                                <div></div>
-                                <span>뉴스판</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a >
-                                <div></div>
-                                <span>쇼핑판</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a herf="">
-                                <div></div>
-                                <span>경제판</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a herf="">
-                                <div></div>
-                                <span>클립판</span>
-                            </a>
-                        </li>
+                        
+                            <li>
+                                <a href="https://s.pstatic.net/static/www/mobile/edit/20230508_0/upload_1683512720230Vr2gk.png">
+                                    <div></div>
+                                    <span>뉴스판</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <div></div>
+                                    <span>쇼핑판</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a herf="">
+                                    <div></div>
+                                    <span>경제판</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a herf="">
+                                    <div></div>
+                                    <span>클립판</span>
+                                </a>
+                            </li>
+                        
                         <li>
                             <a herf="">
                                 <div></div>
