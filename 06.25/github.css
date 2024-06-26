@@ -2,16 +2,22 @@
     display: flex;
     position: relative;
     padding: 16px 0 16px;
+    text-align: center;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center;
+}
+#header>div{
+    padding: 0;
 }
 #wrap{
-    height: 700px;
+    height: 770px;
     width: 100%;
     background-color: #2B3137;
 }
 #wrap-center{
     padding: 0 140px 0;
     border: 1px solid white;
-    height: 700px;
+    height: 800px;
 }
 
 #header-logo{
@@ -25,7 +31,7 @@
     display: flex;
     width: 100px;
     height: 40px;
-    padding: 8px;
+    
     color: #fff;
     text-align: center;
     justify-content: center; /* 수평 중앙 정렬 */
@@ -33,7 +39,7 @@
     
 }
 #header-support{
-    width: 200px;
+    width: 120px;
 }
 #header-margin{
     width: 260px;
@@ -41,27 +47,33 @@
 }
 #header-search{
     width: 324px;
-    height: 30px;
-    display:flex;
-    text-align: center;
-    background: none;
+    height: 45px;
+    text-align:left;
+    background: #3F4448;
+    border-radius: 7px;
     border: 0px;
-    color: #fff;
     
+    display: inline-flex;
+    padding: 0;
+    line-height: 40px;
+    
+}
+#header-search::placeholder{
+    font-size: 20px;
+    padding-left: 10px;
+    color: #CED0D1;
+   
 }
 #header-sign_in, #header-sign_up {
     background: none;
     border: 0px;
     color: #fff;
     font-size: 20px;
-    width: 100px;
+    width: 110px;
     height: 40px;
-    padding: 8px;
     float: right;
     text-align: center;
-    display: flex;
-    justify-content: center; /* 수평 중앙 정렬 */
-    align-items: center;
+    
 }
 #header-sign_up{
     border: 1px solid #fff;
@@ -69,23 +81,26 @@
 }
 #content{
     display: flex;
-    justify-content:space-around; 
+    justify-content:center; 
     align-items:center;
     border: 1px solid #fff;
 }
 #content1{
-    
-    width: 650px;
+    width: 500px;
+    margin-right: 100px;
 }
 #content-strong{
     font-size: 100px;
-    font-weight:600;
+    font-weight:500;
     color: #fff;
+    line-height: 100px;
 }
 #content-mid{
+    margin-top: 20px;
     color: #929292;
-    font-size: 28px;
-    font-weight:500;
+    font-size: 23px;
+    font-weight:300;
+    width: 520px;
 }
 #content-mid>span{
     color: #fff;
@@ -98,12 +113,30 @@
     width: 500px;
     height: 600px;
     border: 1px solid #fff;
+    background-color: #FAFBFC;
+    border-radius: 10px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content:flex-start;
+ 
 }
+.input>#username, .input>#email, .input>#password{
+    width: 200px
+}
+.label>#username, .label>#email, .label>#password{
+    padding: 10px;
+    width: 100px;
+    height: 30px;
+    position: relative;
+    margin-left: 30px;
+}
+
 
 #footer{
     background-color:aqua;
     width: 100%;
-    height: 200px;
+    height: 150px;
     position: absolute;
     display: flex;
     justify-content: flex-end;

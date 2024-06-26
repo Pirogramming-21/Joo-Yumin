@@ -75,10 +75,11 @@
         * {
             box-sizing: border-box;
         }
-        html, body {
+        html, body, form {
             margin: 0px;
             padding: 0px;
         }
+
        
         #wrap{
             text-align: center;
@@ -90,6 +91,8 @@
         }
         #header{
             text-align: left;
+            position: relative;
+            height: 120px;
         }
         .header-left {
             display: inline-flex;
@@ -231,6 +234,7 @@
             margin: -1px;
             overflow: hidden;
         }
+        
     </style>
 </head>
 <body>
@@ -270,9 +274,50 @@
                         <span class="blind">QR코드</span>
                         <!-- ::after -->
                     </button>
+                    
                 </div>
             </div>
-            <div id="search"></div>
+
+            <style>
+                #search>form{
+                    width: 568px;
+                    height: 54px;
+                    padding: 1px;
+                    border: 1px solid #03c75a;
+                    border-radius: 27px;
+                    display: inline-block;
+                }  
+                #search>form>input{
+                    width: 466px;
+                    height: 100%;
+                    padding: 15px 0 15px;
+                    border: none;
+                    outline: none;
+                    text-align: left;
+                } 
+                #searh > form a {
+                    position: absolute;
+                    width: 52px;
+                    height: 52px;
+                    padding: 6px 0 6px 12px;
+                    display: inline-block;
+                }
+                #search>form svg {
+                    width: 42px;
+                    height: 42px;
+                }    
+            </style>
+
+            <div id="search">
+                <form action="">
+                    <a herf="#">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="https://www.w3.org/2000/svg"><path d="M16.273 12.845 7.376 0H0v247.727V11.155L16.624 24H24V0h-7.727v12.845z"></path></svg>
+                    </a>
+                    <label for="search-input" class="blind">검색어 입력</label>
+                    <input id="search-input" type="text">
+                    <button class="blind">검색</button>
+                </form>
+            </div>
             <div id="nav"></div>
             <div id="main"></div>
         </div>
