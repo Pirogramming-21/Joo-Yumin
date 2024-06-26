@@ -538,6 +538,14 @@
                     width: 200px;
                     height: 80px;
                     padding: 18px 16px;
+                    border: 1px solid #03c75a;
+                    border-radius: 10px;
+                }
+                #weather-link, #stock-link{
+                    color: rgb(0, 0, 0);
+                    margin-top: 18px;
+                    text-decoration: underline;
+                    text-decoration-color: #000000;
                 }
 
                 
@@ -548,13 +556,13 @@
                 </div>
                 <div id="main-select">
                     <div class="main-weather-and-stock" id="main-weather">
-                        <a href="https://weather.naver.com/today/16113104?cpName=KMA" data-clk="wdgweather" class="chw_link_widget" style="display: none;" data-ui-rolling="">
-                        
+                        <a href="https://weather.naver.com/today/16113104?cpName=KMA">
+                        <span id="weather-link">날씨</span>
                         </a>
                     </div>
                     <div class="main-weather-and-stock" id="main-stock">
                         <a href="https://m.stock.naver.com/worldstock/futures/NQcv1">
-
+                        <span id="stock-link">증권</span>
                         </a>
                     </div>
 
