@@ -278,14 +278,14 @@
                 </div>
             </div>
 
-            <style>
+            <style> /*body태그에 사용 지양하는 이유: 랜더링 성능, 일관성 유지 등*/
                 #search>form{
                     width: 568px;
                     height: 54px;
                     padding: 1px;
                     border: 1px solid #03c75a;
                     border-radius: 27px;
-                    display: inline-block;
+                    display: inline-flex;
                 }  
                 #search>form>input{
                     width: 466px;
@@ -294,28 +294,62 @@
                     border: none;
                     outline: none;
                     text-align: left;
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 18px;
+       
                 } 
-                #searh > form a {
-                    position: absolute;
+                #search-logo {
+                    width: 42px;
+                    height: 42px;
+                    
+                } 
+                #search > form > a > div {
+                    width: 42px;
+                    height: 42px;
+                    background-image: url(./sp_main.png);
+                    background-size: 323px 234px;
+                    background-repeat: no-repeat;
+                    -webkit-background-size: 323px 234px;
+                    background-position: -196px -145px;
+                    background-color: #03c75a;
+                }
+                #search-svg{
+                    display: inline-block;
                     width: 52px;
                     height: 52px;
                     padding: 6px 0 6px 12px;
                     display: inline-block;
                 }
-                #search>form svg {
-                    width: 42px;
-                    height: 42px;
-                }    
+                #search-right{
+                    padding: 6px 6px 6px 0;
+                }
+                #search-button {
+                    width: 40px;
+                    height: 40px;
+                    padding: 0;
+                    background-image: url(./sp_main.png);
+                    background-size: 323px 234px;
+                    background-repeat: no-repeat;
+                    -webkit-background-size: 323px 234px;
+                    background-position: -240px -145px;
+                    border: none;
+                    outline: none;
+                }
             </style>
 
             <div id="search">
                 <form action="">
-                    <a herf="#">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="https://www.w3.org/2000/svg"><path d="M16.273 12.845 7.376 0H0v247.727V11.155L16.624 24H24V0h-7.727v12.845z"></path></svg>
+                    <a  id="search-svg" herf="#">
+                        <div id="search-logo"></div>        
                     </a>
                     <label for="search-input" class="blind">검색어 입력</label>
-                    <input id="search-input" type="text">
-                    <button class="blind">검색</button>
+                    <input id="search-input" type="text" placeholder="검색어를 입력해주세요.">
+                    <div id="search-right">
+                        <button id="search-button">
+                            <div><span class="blind">검색</span></div>
+                        </button>
+                    </div>
                 </form>
             </div>
             <div id="nav"></div>
