@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>min-width, max-width</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <style>
+      img {
+        width: 70%;
+
+        /* 1. min-width: 너비가 70%를 차지하는데, 500px보다 작게는 줄어들지는 마! */
+        min-width: 500px;
+
+        /* 2. max-width: 너비가 70%를 차지하는데, 800px보다 크게는 커지지는 마! */
+        max-width: 800px;
+
+        /* 3. 단축 */
+        /* width: min(100%, 500px); */
+        /* 둘중에 작은값으로 표현 */
+        /* width: max(100%, 800px); */
+        /* 둘중에 큰값으로 표현 */
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="https://images.unsplash.com/photo-1661956600684-97d3a4320e45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+      alt=""
+    />
+  </body>
+</html>
