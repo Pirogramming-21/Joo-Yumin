@@ -22,10 +22,13 @@ main{
     padding: 0 40px;
 }
 
-.main-header--container > ul{
+#desktop-menu{
     display: flex;
-    font-size: 1.8rem;
     gap: 2rem;
+    font-size: 1.8rem;
+}
+#desktop-menu >ul >li{
+    font-size: 1.8rem;
 }
 
 .main-header--container > ul > li:hover {
