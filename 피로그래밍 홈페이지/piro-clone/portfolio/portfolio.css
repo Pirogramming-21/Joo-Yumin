@@ -16,16 +16,24 @@ main{
 #main-portfolio--title{
     height: 40px;
     width: 100%;
-    background-color: blue;
+    background-color: black;
     margin: 0 0 16px;
     display: flex;
     text-align: center;
-    justify-content: center;
+    justify-content: space-between;
 }
-#main-portfolio-title > div {
-    display: inline-block;
-    font-size: 4rem;
-
+#main-portfolio--title > div{
+    font-size: 2.2rem;
+    height: auto;
+    display: block;
+    flex: 2;
+    z-index: 1000;
+}
+#main-portfolio--title > button{
+    font-size: 1.6rem;
+    height: auto;
+    display: block;
+    color: white;
 }
 .main-portfolio--container > div{
     display: inline-block;
@@ -49,8 +57,8 @@ main{
     flex-direction: column;
     justify-content: space-around;
     position: absolute;
-    right: var(--gutter);
-    top: var(--gutter);   
+    right: 0;
+    top: 0;   
 }
 .portfolio-hamburger > div {
     width: 100%;
@@ -67,13 +75,13 @@ main{
     height: 110px;
     background-color: white;
     border-radius: 6px;
+    overflow: hidden;
 }
 .main-portfolio--img > img{
     position: relative;
     width: 100%;
     padding: 0 20px;
     object-fit: contain;  
-    overflow: hidden;
 }
 .portfolio-content{
     position: relative;
@@ -85,22 +93,60 @@ main{
 }
 .portfolio-content >div{
     display: inline-block;
-    text-align: center;
+    text-align: start;
     position: relative;
 }
-.portfolio-content>ul{
+.portfolio-content >div:nth-of-type(1){
+    font-size: 2.2rem;
+}
+.portfolio-content >div:nth-of-type(2){
+    font-size: 1.6rem;
+}
+
+.portfolio-content >ul{
     display: flex;
-    flex-direction: column;
-    position: relative;
-    background-color: blue;
+    flex-direction: row;
+    margin: 15px 0 0;
+    gap: 10px;
 }
-.main-portfolio--box:hover .chlid img {
+.portfolio-content>ul > li {
+    width: auto;
+    height: 26px;
+    padding: 6px 8px;
+    background-color: rgba(236, 236, 236, 0.466);
+    color: black;
+    border-radius: 5px;
+    font-size: 1.4rem;
+}
+.portfolio-content>ul .leader{
+    background-color: #2188b6;
+    color: white;
+}
+
+
+.main-portfolio--container >div:hover {
+    transform: translateY(-2px);
+    transition: 0.3s;
+} 
+.main-portfolio--container >div:hover .main-portfolio--img> img {
     transform: scale(1.1);
     transition: 0.3s;
-} /*하... 호버 안되냐*/
+}
 
 
-
-@media screen and (max-width: 768px) {
-
+@media screen and (max-width: 650px) {
+   .main-portfolio--box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;     
+   } 
+   .main-portfolio--container >div {
+    height: auto;
+   }
+   .portfolio-content{
+    display: flex;
+    text-align: center;
+    align-items: center;
+   }
 }
