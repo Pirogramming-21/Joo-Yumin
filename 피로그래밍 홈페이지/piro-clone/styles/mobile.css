@@ -1,0 +1,56 @@
+#hamburger-icon{
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#hamburger-icon > div{
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+    margin: 3px 0;
+}
+
+#hamburger-icon > input[type="checkbox"]:checked ~ div:nth-of-type(1){
+    transform: rotate(45deg)  ; /*translate가 안먹는다*/
+    transform-origin:30% 50%;
+}
+#hamburger-icon > input[type="checkbox"]:checked ~ div:nth-of-type(2){
+    transform: rotate(-45deg);
+    transform-origin:40% 40%;
+}
+#hamburger-icon > input[type="checkbox"]:checked ~ div:nth-of-type(3){
+    transform: rotate(45deg);
+    transform-origin:90% 200%;
+}
+
+@media screen and (min-width: 768px){
+    #hamburger-icon{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-header--container ul{
+        display: none;
+    }
+    .sidebar{
+        width: 300px;
+        height: calc(100vh - var(--header-height));
+        position: fixed; /*왜 고정이 안됐지?*/
+        top: var(--header-height);
+        background-color: rgb(51, 51, 51);
+        right: -300px;
+        transition: 0.3s;
+    }
+    #hamburger-icon > input[type="checkbox"]:checked ~ .sidebar{
+        right: 0;
+        
+    }
+    .sidebar > ul > li {
+        position: relative;
+        color: white;
+    }
+}
