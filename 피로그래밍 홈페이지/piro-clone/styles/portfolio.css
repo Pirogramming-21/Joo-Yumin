@@ -1,0 +1,162 @@
+main{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+#main-portfolio{
+    display: flex;
+    position: absolute;
+    text-align: center;
+    flex-direction: column;
+    padding:90px var(--offset) 50px;
+    margin: auto;
+    box-sizing: border-box;
+}
+#main-portfolio--title{
+    height: 40px;
+    width: 100%;
+    background-color: black;
+    margin: 0 0 16px;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+#main-portfolio--title > div{
+    font-size: 2.2rem;
+    height: auto;
+    display: block;
+    flex: 2;
+    z-index: 1000;
+}
+#main-portfolio--title > button{
+    font-size: 1.6rem;
+    height: auto;
+    display: block;
+    color: white;
+}
+.main-portfolio--container > div{
+    display: inline-block;
+    width: 100%;
+    height: 142px;
+    background-color: var(--gray);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 0 0 16px; 
+}
+.main-portfolio--box{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    gap: var(--gutter);
+}
+.portfolio-hamburger{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    right: 0;
+    top: 0;   
+}
+
+.portfolio-hamburger >div{
+    width: 100%;
+    height: 2px;
+    background-color: var(--bg-5);
+    transition: 0.3s;
+    
+}
+
+.main-portfolio--box > .main-portfolio--img{
+    display: flex;
+    position: relative;
+    width: 150px;
+    height: 110px;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.main-portfolio--img > img{
+    position: relative;
+    width: 100%;
+    padding: 0 20px;
+    object-fit: contain;  
+}
+.portfolio-content{
+    position: relative;
+    width: 331.1px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.portfolio-content >div{
+    display: inline-block;
+    text-align: start;
+    position: relative;
+}
+.portfolio-content >div:nth-of-type(1){
+    font-size: 2.2rem;
+}
+.portfolio-content >div:nth-of-type(2){
+    font-size: 1.6rem;
+}
+
+.portfolio-content >ul{
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0 0;
+    gap: 10px;
+}
+.portfolio-content>ul > li {
+    width: auto;
+    height: 26px;
+    padding: 6px 8px;
+    background-color: rgba(236, 236, 236, 0.466);
+    color: black;
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
+.portfolio-content>ul .leader{
+    background-color: #2188b6;
+    color: white;
+}
+
+
+.main-portfolio--container >div:hover {
+    transform: translateY(-2px);
+    transition: 0.3s;
+} 
+.main-portfolio--container >div:hover .main-portfolio--img> img {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+.main-portfolio--container >div:hover .hamburger1{
+    width: 50%;
+    margin-right: auto;
+    
+}
+.main-portfolio--container >div:hover .hamburger3{
+    width: 50%;
+    margin-left: auto;
+}
+
+
+@media screen and (max-width: 650px) {
+   .main-portfolio--box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;     
+   } 
+   .main-portfolio--container >div {
+    height: auto;
+   }
+   .portfolio-content{
+    display: flex;
+    text-align: center;
+    align-items: center;
+   }
+}
