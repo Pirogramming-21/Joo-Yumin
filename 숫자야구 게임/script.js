@@ -1,42 +1,15 @@
 const submitButton = document.querySelector('.submit-button');
 let maxAttempt = 9;
-let randomNumbers = [];
 
-create_random_number();
-console.log(`남은 시도 횟수: ${maxAttempt}`);
-console.log(randomNumbers);
 
-// 게임 초기화
-submitButton.addEventListener('click', () => {
-    if (check_numbers()) {
-        maxAttempt--;
-        console.log(`남은 시도 횟수: ${maxAttempt}`);
-        if (maxAttempt === 0) {
-            document.getElementById('game-result-img').src = "fail.png";
-            document.getElementById('game-result-img').style.display = 'block';
-        } 
-    }
-});
-
-// 게임 재시작 함수
-function restartGame() {
-    document.getElementById('number1').value = '';
-    document.getElementById('number2').value = '';
-    document.getElementById('number3').value = '';
-    document.getElementById('container').innerHTML = ''; // 결과 창 초기화
-    submitButton.disabled = false; // 버튼 활성화
-    console.log(`남은 시도 횟수: ${maxAttempt}`);
-}
-
-// 중복되지 않는 3개의 랜덤한 숫자 생성 함수
-function create_random_number() {
-    const numbers = [];
+// 중복되지 않는 3개의 랜덤한 숫자 생성 
+const numbers = [];
 
     for (let i = 0; i < 9; i++) {
         numbers.push(i + 1);
     }
 
-    randomNumbers = [];
+let randomNumbers = [];    
 
     for (let n = 0; n < 3; n++) {
         const index = Math.floor(Math.random() * numbers.length);
@@ -44,10 +17,13 @@ function create_random_number() {
         numbers.splice(index, 1);
     }
 
+    console.log(`시도 횟수: ${maxAttempt}`);
     console.log(randomNumbers);
-}
 
-// 숫자 입력 확인 함수
+
+
+
+// check_numbers() 구현
 function check_numbers() {
     let inputNumber1 = parseInt(document.getElementById('number1').value);
     let inputNumber2 = parseInt(document.getElementById('number2').value);
@@ -66,7 +42,8 @@ function check_numbers() {
     if (resultHTML.includes('3 <div class="strike num-result">S</div>')) {
         document.getElementById('game-result-img').src = "success.png";
         document.getElementById('game-result-img').style.display = 'block';
-        submitButton.disabled = true; // 버튼 비활성화
+        document.querySelector('.submit-button').disabled = true; 
+        return true;
     }
 
     document.getElementById('number1').value = '';
@@ -80,7 +57,7 @@ function contrast_numbers(inputNumber1, inputNumber2, inputNumber3) {
     let strikeNumbers = 0;
     let ballNumbers = 0;
 
-    // 정답 숫자가 위치와 관계없이 포함되어 있는지 확인하여 볼 수를 계산
+    
     if (randomNumbers.includes(inputNumber1)) ballNumbers++;
     if (randomNumbers.includes(inputNumber2)) ballNumbers++;
     if (randomNumbers.includes(inputNumber3)) ballNumbers++;
@@ -90,6 +67,19 @@ function contrast_numbers(inputNumber1, inputNumber2, inputNumber3) {
     if (randomNumbers[1] === inputNumber2) strikeNumbers++;
     if (randomNumbers[2] === inputNumber3) strikeNumbers++;
 
+    maxAttempt--;
+    console.log(`시도 횟수: ${maxAttempt}`);
+
+    // 게임 초기화
+    if (maxAttempt == 0) {
+        document.getElementById('game-result-img').src = "fail.png";
+        document.getElementById('game-result-img').style.display = 'block';
+        document.getElementById('number1').value = '';
+        document.getElementById('number2').value = '';
+        document.getElementById('number3').value = '';
+        document.querySelector('.check-result').innerHTML = ''; 
+        document.querySelector('.submit-button').disabled = true;
+    };   
     // 결과 HTML을 생성하여 반환
     return `
         <div class="check-result">
@@ -103,3 +93,7 @@ function contrast_numbers(inputNumber1, inputNumber2, inputNumber3) {
         </div>
     `;
 }
+
+
+ 
+
