@@ -62,11 +62,12 @@ function recordTime() {
     record.className = 'record-main';
     const recordButton = document.createElement('i');
     recordButton.className = 'button-side bi-circle';
+    
 
     recordButton.addEventListener('click', ()=> {
-        recordButton.classList.toggle('button-side bi-circle');
-        recordButton.classList.toggle('bi bi-check-circle');
-    })
+        recordButton.classList.toggle('bi-circle');
+        recordButton.classList.toggle('bi-check-circle');
+    });
 
     const recordSecond = document.createElement('div');
     recordSecond.className = 'record-second';
@@ -82,13 +83,15 @@ function recordTime() {
     //recordButton.classList('bi-circle');
     recordSecond.innerText = (seconds + ':');
     recordMilli.innerText = milliSeconds;
-    console.log();
     recordsContainer.appendChild(record);
 
     
 }
-    
-const deleteButton = document.querySelector('.bi bi-trash-fill');
+
+
+
+
+const deleteButton = document.querySelector('.bi-trash-fill');
 deleteButton.addEventListener('click', () => {
     const selectedRecords = document.querySelectorAll('.record-main');
     selectedRecords.forEach(record => {
@@ -98,5 +101,11 @@ deleteButton.addEventListener('click', () => {
     });
 });
 
+const allSelectButton = document.querySelector('.button-top bi-circle');
+allSelectButton.className= 'button-top bi-circle';
 
+allSelectButton.addEventListener('click', ()=> {
+    allSelectButton.classList.toggle('button-top bi-circle');
+    allSelectButton.classList.toggle('bi-check-circle');
+});
 
