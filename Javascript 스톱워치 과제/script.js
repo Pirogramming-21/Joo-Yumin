@@ -77,13 +77,26 @@ function recordTime() {
     record.appendChild(recordSecond);
     record.appendChild(recordMilli);
 
+    
+
     //recordButton.classList('bi-circle');
     recordSecond.innerText = (seconds + ':');
     recordMilli.innerText = milliSeconds;
     console.log();
     recordsContainer.appendChild(record);
 
-
-
+    
 }
+    
+const deleteButton = document.querySelector('.bi bi-trash-fill');
+deleteButton.addEventListener('click', () => {
+    const selectedRecords = document.querySelectorAll('.record-main');
+    selectedRecords.forEach(record => {
+        if (record.querySelector('.bi-check-circle')) {
+            record.remove();
+        }
+    });
+});
+
+
 

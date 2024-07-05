@@ -113,9 +113,10 @@ main {
 
 
 .records {
-    
     width: 100%;
-    height:50px;
+    height:25vh;
+    overflow-y: auto; /*기록 내에서만 스크롤 되도록 구현*/
+    background-color:#ffffff;
     
 }
 .record-main {
