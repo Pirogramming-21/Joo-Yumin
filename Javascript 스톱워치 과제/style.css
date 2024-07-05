@@ -102,6 +102,11 @@ main {
     font-size: 22px;
 }
 
+.record-top > .bi-check-circle {
+    cursor: pointer;
+    font-size: 22px;
+}
+
 #record-title {
     font-weight: bolder;
 }
@@ -137,7 +142,7 @@ main {
     font-size: 22px;
     cursor: pointer;
 }
-.bi-check-circle {
+.record-main>.bi-check-circle {
     cursor: pointer;
     margin-right: 29%;
     margin-left: 13%;

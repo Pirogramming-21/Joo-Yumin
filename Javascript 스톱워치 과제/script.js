@@ -67,6 +67,17 @@ function recordTime() {
     recordButton.addEventListener('click', ()=> {
         recordButton.classList.toggle('bi-circle');
         recordButton.classList.toggle('bi-check-circle');
+    
+
+
+    const allRecords = document.querySelectorAll('.button-side');
+    const allChecked = Array.from(allRecords).every(btn => btn.classList.contains('bi-check-circle'));
+
+        if (allChecked) {
+            allSelectButton.classList.remove('bi-circle');
+            allSelectButton.classList.add('bi-check-circle');
+        }
+
     });
 
     const recordSecond = document.createElement('div');
@@ -85,27 +96,45 @@ function recordTime() {
     recordMilli.innerText = milliSeconds;
     recordsContainer.appendChild(record);
 
-    
 }
 
+    
+
+const allSelectButton = document.querySelector('.button-top.bi-circle');
+
+allSelectButton.addEventListener('click', ()=> {
+    allSelectButton.classList.toggle('bi-circle');
+    allSelectButton.classList.toggle('bi-check-circle');
 
 
-
-const deleteButton = document.querySelector('.bi-trash-fill');
-deleteButton.addEventListener('click', () => {
-    const selectedRecords = document.querySelectorAll('.record-main');
-    selectedRecords.forEach(record => {
-        if (record.querySelector('.bi-check-circle')) {
-            record.remove();
+const recordButtons = document.querySelectorAll('.record-main .button-side');
+    recordButtons.forEach(button => {
+        if (allSelectButton.classList.contains('bi-check-circle')) {
+            button.classList.remove('bi-circle');
+            button.classList.add('bi-check-circle');
+        } else {
+            button.classList.remove('bi-check-circle');
+            button.classList.add('bi-circle');
         }
     });
 });
 
-const allSelectButton = document.querySelector('.button-top bi-circle');
-allSelectButton.className= 'button-top bi-circle';
 
-allSelectButton.addEventListener('click', ()=> {
-    allSelectButton.classList.toggle('button-top bi-circle');
+const deleteButton = document.querySelector('.bi-trash-fill');
+deleteButton.addEventListener('click', () => {
+    allSelectButton.classList.toggle('bi-circle');
     allSelectButton.classList.toggle('bi-check-circle');
+    const selectedRecords = document.querySelectorAll('.record-main');
+    selectedRecords.forEach(record => {
+        if (record.querySelector('.bi-check-circle')) {
+            record.remove();
+                
+        }
+    });
 });
+
+ 
+
+
+
 
