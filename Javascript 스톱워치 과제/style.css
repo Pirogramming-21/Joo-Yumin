@@ -1,0 +1,149 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#stopwatch-title {
+    margin-top: 10%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.bi-stopwatch {
+    font-size: 22px;
+    font-weight: bolder;
+}
+#title {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.stopwatch {
+    background-color: #3C2317;
+    border-radius: 30px;
+    height: 35vh;
+    width: 30%;
+    display: flex;
+    justify-content:flex-start;
+    flex-direction: column;
+}
+#display {
+    background-color: #F5EFE6;
+    border-radius: 30px;
+    height: 12vh;
+    width: 23.5vw;
+    display: block;
+    margin: 8% 10% 10% 10%;
+    text-align: center;
+    font-size: 70px;
+    
+    
+}
+
+#cnt-second {
+    font-size: 70px;
+    
+}
+#cnt-milli {
+    font-size: 70px;
+    
+}
+
+.button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30%;
+}
+.button-sub {
+    border-radius: 20px;
+    background-color: #F5EFE6;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    padding-top: 2%;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#record-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #628E90;
+    border-radius: 30px;
+    height: auto;
+    width: 30%;
+    margin-top: 5vh;
+    flex-direction: column;
+}
+
+.record-top {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 5vh;
+    
+
+}
+
+#click-all {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 100%;
+    cursor: pointer;
+}
+.click-button {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+#record-title {
+    font-weight: bolder;
+}
+
+.bi-trash-fill {
+    font-size: 23px;
+    cursor: pointer;
+}
+
+
+.records {
+    background-color: #F5EFE6;
+    width: 100%;
+    height:50px;
+}
+.record-main {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    /*padding-left: 8vh;*/
+    align-items:center;
+    width: 100%;
+    height:50px;
+    
+}
+.click-button {
+    margin-right: 29%;
+    margin-left: 13%;
+}
+
+.record-time {
+    font-size: larger;
+}
+* {
+    box-sizing: border-box;
+}

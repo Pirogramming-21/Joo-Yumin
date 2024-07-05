@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스톱워치</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <main>
+        <div id="stopwatch-title">
+            <i class="bi bi-stopwatch"></i>
+            <h2 id="title">피로그래밍 스톱워치</h2>
+        </div>
+        <div class="stopwatch">
+            <div id="display">
+                <span id="cnt-second">00</span>
+                <span id="slat">:</span>                
+                <span id="cnt-milli" >00</span>
+            </div>
+            <div class="button">
+                <span id="start-button" class="button-sub">start</span>
+                <span id="stop-button" class="button-sub">stop</span>
+                <span id="reset-button" class="button-sub">reset</span>
+            </div>
+        </div>
+        <div id="record-side">
+            <div class="record-top">
+                <span id="click-all"></span>
+                <span id="record-title">구간 기록</span>
+                <i class="bi bi-trash-fill"></i>
+            </div>
+            <div class="records">
+                <div class="record-main">
+                    <div class="click-button"></div>
+                    <div class="record-second">00</div>:
+                    <div class="record-milli">30</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+</body>
+<script src="./script.js"></script>
+</html>
