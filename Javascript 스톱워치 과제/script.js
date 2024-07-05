@@ -23,18 +23,19 @@ stopButton.addEventListener('click', () => {
 
 resetButton.addEventListener('click', ()=> {
     clearInterval(interval);
+    
 
     seconds = 0;
     milliSeconds =0;
-    timeSecond.innerText = 0;
-    timeMilli.innerText = 0;
+    timeSecond.innerText = '00';
+    timeMilli.innerText = '00';
 })
 
 function setStart() {
     milliSeconds++;
 
     if (milliSeconds <= 9) {
-        timeMilli.innerText = milliSeconds;
+        timeMilli.innerText = '0' +milliSeconds;
     }
     if (milliSeconds > 9) {
         timeMilli.innerText = milliSeconds;
@@ -42,20 +43,31 @@ function setStart() {
 
     if (milliSeconds > 99) {
         seconds++;
-        timeSecond.innerText = seconds;
+        if (seconds < 10) {
+            timeSecond.innerText = '0'+seconds;
+        } else {
+            timeSecond.innerText = seconds;
+        }
+        
         milliSeconds = 0;
-        timeMilli.innerText = '00';
+        timeMilli.innerText = '0' + milliSeconds;
     }
         
 }
 
 function recordTime() {
 
-    const recordsContainer = document.getElementById('records');
+    const recordsContainer = document.querySelector('.records');
     const record = document.createElement('div')
     record.className = 'record-main';
-    const recordButton = document.createElement('div');
-    recordButton.className = 'click-button';
+    const recordButton = document.createElement('i');
+    recordButton.className = 'button-side bi-circle';
+
+    recordButton.addEventListener('click', ()=> {
+        recordButton.classList.toggle('button-side bi-circle');
+        recordButton.classList.toggle('bi bi-check-circle');
+    })
+
     const recordSecond = document.createElement('div');
     recordSecond.className = 'record-second';
     const recordMilli = document.createElement('div');
@@ -65,6 +77,7 @@ function recordTime() {
     record.appendChild(recordSecond);
     record.appendChild(recordMilli);
 
+    //recordButton.classList('bi-circle');
     recordSecond.innerText = (seconds + ':');
     recordMilli.innerText = milliSeconds;
     console.log();
