@@ -1,16 +1,32 @@
-<h1> 글 작성하기 </h1>
+{% load static %}
 
-<form method="post">
-  {% csrf_token %}
-  <input name="title" placeholder="영화 제목"  /> <br/>
-  <input name="release" placeholder="개봉 년도" /> <br/>
-  <input name="director" placeholder="감독" /> <br/>
-  <input name="actor" placeholder="주연" /> <br/>
-  <input name="genre" placeholder="장르" /> <br/>
-  <input name="score" placeholder="별점" /> <br/>
-  <input name="running_time" placeholder="러닝타임" /> <br/>
-  <textarea name="content" cols="30" rows="10" placeholder="리뷰 내용"></textarea>
-  <div>
-    <input type="submit" value="작성완료">
-  </div>
-</form>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="{% static 'write.css' %}">
+    </head>
+
+    <body>
+        <h1> 글 작성하기 </h1>
+
+       
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="review_write">
+                <input name="title" placeholder="영화 제목"  /> <br/>
+                <input name="release" placeholder="개봉 년도" /> <br/>
+                <input name="director" placeholder="감독" /> <br/>
+                <input name="actor" placeholder="주연" /> <br/>
+                <input name="genre" placeholder="장르" /> <br/>
+                <input name="score" placeholder="별점" /> <br/>
+                <input name="running_time" placeholder="러닝타임" /> <br/>
+                <textarea name="content" cols="30" rows="10" placeholder="리뷰 내용"></textarea>
+            </div>
+            <div id="update_container">
+                <input id="update" type="submit" value="update">
+            </div>
+        </form>
+    </body>
+</html>

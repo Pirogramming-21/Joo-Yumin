@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+ }
+ @font-face {
+    font-family: 'PeoplefirstFightingTTF';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-2@1.0/PeoplefirstFightingTTF.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+ }
+ 
+ @font-face {
+    font-family: 'Cafe24Decobox';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Decobox.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+ }
+
+ @import url('reset.css');
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#movie_title {
+    font-size: 50px;
+    font-family: 'PeoplefirstFightingTTF';
+    margin: 50px 0 20px;
+
+}
+
+.detail_btn {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+    flex-direction: row;
+    gap: 20px;
+}
+#edit {
+    font-size: 25px;
+    margin-top: 1.5px;
+    font-family: 'Cafe24Decobox';
+    padding-right: 20px;
+}
+input {
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    appearance: none; 
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 25px;
+    font-family: 'Cafe24Decobox';
+    padding-left: 20px;
+    left: 20px;
+}
+
+
+.movie_detail {
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    flex-direction: row;
+    gap: 7px;
+    font-size: 20px;
+    padding:20px;
+    margin-top:20px;
+    width: 70%;
+    height: 300px;
+    border: 2px dashed black;
+    gap:30px;
+}
+
+.sub {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    flex-direction: column;
+    gap: 15px;
+    width: 40%;
+    display: block;
+    text-align: left;
+}
+
+.movie_detail > p {
+    text-align: left;
+    margin-top: 20px;
+    width: auto;
+}
+
+#solid_line {
+    background-color: black;
+    height: auto;
+    width: 3px;
+    display: inline-block;
+}
+
+#main_menu {
+    margin-top: 30px;
+    font-family: 'Cafe24Decobox';
+    background-image: url('/static/image/cloud.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width: 500px;
+    height: 100px;
+    text-align: center;
+    padding: 40px;
+    margin-top:50px;
+}

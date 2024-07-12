@@ -1,31 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Review Detail</title>
+    <link rel="stylesheet" href="{% static 'review_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
 </head>
 <body>
-    <h1>리뷰 상세 정보</h1>
+ 
+    <a id="main_menu" href="/">my Movie reviews</a> 
     
-    <h2>{{ review.title }}</h2>
-    <div>감독: {{ review.director }}</div>
-    <div>주연: {{ review.actor }}</div>
-    <div>장르: {{ review.genre }}</div>
-    <div>별점: {{ review.score }}</div>
-    <div>러닝타임: {{ review.running_time }}</div>
-    <div>리뷰 내용:</div>
-    <p>{{ review.content }}</p>
+    <h2 id="movie_title">{{ review.title }}</h2>
     
-    <br>
-    <a href="/">my Movie reviews</a> 
+    <div class="movie_detail">
+        <div class="sub">
+            <div style="font-family:Pretendard-Regular;">감독: {{ review.director }}</div>
+            <div style="font-family:Pretendard-Regular;">주연: {{ review.actor }}</div>
+            <div style="font-family:Pretendard-Regular;">장르: {{ review.genre }}</div>
+            <div style="font-family:Pretendard-Regular;">별점: {{ review.score }}</div>
+            <div style="font-family:Pretendard-Regular;">러닝타임: {{ review.running_time }}</div>
+            <br>
+        </div>
+        <div id="solid_line"></div>
+        <p style="font-family:Pretendard-Regular;">{{ review.content }}</p>
+    </div>
+    <div class="detail_btn">
+        <a id="edit" href="update/">edit</a>
+        
+        
+        <form method="post" action="delete/">
+            {% csrf_token %}
+            <input type="submit" value="delete">
+        </form>
+    </div>
     
-    <br>
-    <a href="update/">수정</a> 
     
-    <br>
-    <form method="post" action="delete/">
-        {% csrf_token %}
-        <input type="submit" value="삭제하기">
-    </form>
+    
+    
 </body>
 </html>

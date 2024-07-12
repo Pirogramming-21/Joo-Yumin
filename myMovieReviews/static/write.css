@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'PeoplefirstNeatLoudTTF';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-2@1.0/PeoplefirstNeatLoudTTF.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24Decobox';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Decobox.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+ }
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'PeoplefirstNeatLoudTTF';
+    font-size: 50px;
+}
+
+.review_write {
+    background-image: url('/static/image/paper.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width: 50vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    text-align: start;
+    padding-top: 70px;
+    gap: 3px;
+}
+
+.review_write > .sub {
+    padding-bottom: 6px;
+}
+
+#update {
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    appearance: none; 
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 25px;
+    font-family: 'Cafe24Decobox';
+}
+
+#update_container {
+    margin-left: 45%;
+}

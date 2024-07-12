@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def list(request):
-    reviews = Review.objects.all()
+    reviews = Review.objects.filter(is_deleted=False)
     return render(request, 'review_list.html', {'reviews': reviews})
 
 def create(request):
@@ -18,7 +18,7 @@ def create(request):
             genre = request.POST["genre"],
             score = request.POST["score"],
             running_time = request.POST["running_time"],
-            content = request.POST["content"]
+            content = request.POST["content"],
         )
         return redirect("/")
     return render(request, 'review_create.html')
@@ -42,6 +42,7 @@ def review_update(request, pk):
         running_time=request.POST.get("running_time")
         content=request.POST.get("content")
 
+
         review.title = title
         review.release = release
         review.director = director
@@ -49,10 +50,8 @@ def review_update(request, pk):
         review.genre = genre
         review.score = score
         review.running_time = running_time
-        review.content = content  
-           
-    
-
+        review.content = content 
+        
         review.save() 
 
         return redirect(f"/{pk}")
@@ -63,6 +62,7 @@ def review_update(request, pk):
 
 def review_delete(request, pk):
     if request.method=="POST":
-        post=Review.objects.get(id=pk)
-        post.delete()
+        review = get_object_or_404(Review, id=pk)
+        review.is_deleted = True
+        review.save()
     return redirect("/")

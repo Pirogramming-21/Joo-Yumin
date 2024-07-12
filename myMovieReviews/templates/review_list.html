@@ -1,12 +1,34 @@
-<h1>글 목록</h1>
+{% load static %}
 
-    {% for review in reviews %}
-        <a href="/{{review.id}}"><h2>{{ review.title }}</h2></a>
-        <div>{{ review.release }}</div>
-        <div>{{ review.genre }}</div>
-        <div>{{ review.score }}</div>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="{% static 'review_list.css' %}">
+        <link rel="stylesheet" href="{% static 'reset.css' %}">
+    </head>
+
+    <body>
+
         
-    {% endfor %}
+            <div class="page_title"> Movie Review Lists</div>
+            <a href="create/" id="create_btn"></a>
+            <div class="list_container">
+                
+                    {% for review in reviews %}
+                        {% if not review.is_deleted %}
+                        <div class="movie_container">
+                            <a class="movie_title" href="/{{review.id}}" style="font-family:PeoplefirstFightingTTF;"><h2>{{ review.title }}</h2></a>
+                            <div style="font-family:Pretendard-Regular;">{{ review.release }}년 개봉&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;별점: {{ review.score }} </div>
+                            <div style="font-family:Pretendard-Regular;">{{ review.genre }}</div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                
+                
+            </div>
+            
 
-<a href="create/">게시글 등록</a>
+    </body>
+</html>
+
 

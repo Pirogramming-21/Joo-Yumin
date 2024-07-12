@@ -1,0 +1,85 @@
+@font-face {
+   font-family: 'Pretendard-Regular';
+   src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+   font-weight: 400;
+   font-style: normal;
+}
+@font-face {
+   font-family: 'PeoplefirstFightingTTF';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-2@1.0/PeoplefirstFightingTTF.woff2') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Cafe24Decobox';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Decobox.woff2') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@import url('reset.css');
+
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction:column;
+}
+
+.list_container {
+   display: flex;
+   justify-content: start;
+   align-items: center;
+   flex-direction: column;
+   width: 60%;
+   height: 70%;
+   margin: 0 20% 0;
+   overflow-y: auto;
+   background-color: black;
+   padding: 10px;
+
+}
+
+.page_title {
+   margin-top: 30px;
+   margin-bottom: 30px;
+   font-size: 50px;
+   font-family: 'Cafe24Decobox';
+}
+ 
+#create_btn {
+   margin: 20px 0 50px;
+   width: 50px;
+   height: 20px;
+   background-image: url('/static/image/pencil.png');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
+}
+
+.movie_container {
+   /*background-image: url('/static/image/ticket.png');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;*/
+   border: 1px solid black;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
+   width: 60%;
+   height: auto;
+   padding:20px;
+   gap: 10px;
+   margin-top: 20px;
+   background-color: white;
+}
+
+.movie_title {
+   font-size: 30px;
+   margin-bottom: 5px;
+}
