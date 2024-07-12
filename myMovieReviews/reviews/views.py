@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django import forms
 from .models import Review
+from django.http import HttpResponse
 
 # Create your views here.
 def list(request):
@@ -31,30 +32,37 @@ def review_detail(request, pk):
 
 def review_update(request, pk):
     review = get_object_or_404(Review, id=pk)
-    context = {
-        'review': review
-    }
     if request.method=="POST":
-        review.title=request.POST["title"]
-        review.release=request.POST["release"]
-        review.director=request.POST["director"]
-        review.actor=request.POST["actor"]
-        review.genre=request.POST["genre"]
-        review.score=request.POST["score"]
-        review.running_time=request.POST["running_time"]
-        review.content=request.POST["content"]
+        title = request.POST.get("title")
+        release=request.POST.get("release")
+        director=request.POST.get("director")
+        actor=request.POST.get("actor")
+        genre=request.POST.get("genre")
+        score=request.POST.get("score")
+        running_time=request.POST.get("running_time")
+        content=request.POST.get("content")
+
+        review.title = title
+        review.release = release
+        review.director = director
+        review.actor = actor
+        review.genre = genre
+        review.score = score
+        review.running_time = running_time
+        review.content = content  
+           
+    
 
         review.save() 
 
-        return redirect(f"/{pk}", id=pk)
-    
-    
+        return redirect(f"/{pk}")
+    context={
+        "review":review
+    }
     return render(request, 'review_update.html', context) 
 
 def review_delete(request, pk):
     if request.method=="POST":
-        review = get_object_or_404(Review, id=pk)
-        review.delete()
-
-        return redirect("/")
+        post=Review.objects.get(id=pk)
+        post.delete()
     return redirect("/")

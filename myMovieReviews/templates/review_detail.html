@@ -23,7 +23,7 @@
     <a href="update/">수정</a> 
     
     <br>
-    <form method="post">
+    <form method="post" action="delete/">
         {% csrf_token %}
         <input type="submit" value="삭제하기">
     </form>
