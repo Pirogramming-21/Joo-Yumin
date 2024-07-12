@@ -10,3 +10,4 @@ class Review(models.Model):
     score = models.TextField()
     running_time = models.TextField()
     content = models.TextField()
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Detail</title>
+</head>
+<body>
+    <h1>리뷰 상세 정보</h1>
+    
+    <h2>{{ review.title }}</h2>
+    <div>감독: {{ review.director }}</div>
+    <div>주연: {{ review.actor }}</div>
+    <div>장르: {{ review.genre }}</div>
+    <div>별점: {{ review.score }}</div>
+    <div>러닝타임: {{ review.running_time }}</div>
+    <div>리뷰 내용:</div>
+    <p>{{ review.content }}</p>
+    
+    <br>
+    <a href="/">my Movie reviews</a> <!-- 리뷰 리스트 페이지로 이동 -->
+    
+    <br>
+    <a href="update/">수정</a> <!-- 리뷰 수정 페이지로 이동 -->
+    
+    <br>
+    <form action="" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit">삭제</button> <!-- 리뷰 삭제 -->
+    </form>
+    
+</body>
+</html>

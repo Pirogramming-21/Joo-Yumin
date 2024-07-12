@@ -1,0 +1,16 @@
+<h1> 글 수정하기 </h1>
+
+<form method="post">
+  {% csrf_token %}
+  <input name="title" placeholder="영화 제목" value="{{post.title}}" /> <br/>
+  <input name="release" placeholder="개봉 년도" value="{{post.release}}"/> <br/>
+  <input name="director" placeholder="감독" value="{{post.director}}"/> <br/>
+  <input name="actor" placeholder="주연" value="{{post.actor}}"/> <br/>
+  <input name="genre" placeholder="장르" value="{{post.genre}}"/> <br/>
+  <input name="score" placeholder="별점" value="{{post.score}}"/> <br/>
+  <input name="running_time" placeholder="러닝타임" value="{{post.running_time}}"/> <br/>
+  <textarea name="content" cols="30" rows="10" placeholder="리뷰 내용">{{post.content}}</textarea>
+  <div>
+    <input type="submit" value="수정완료">
+  </div>
+</form>
