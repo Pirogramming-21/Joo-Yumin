@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-j3)$b7g&0ekzs4*qgqh#4w47k%01gu2wog$k+k9qnvyrynr(a)'
+SECRET_KEY = 'django-insecure-*5^v-zt6qew$d*-kpc_5q9c63ah!fwwrg$n&^w_6o2o2=1$2ef'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'lists',
+    'reviews',
 ]
 
 MIDDLEWARE = [
@@ -122,20 +122,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-LOGGING = { # 터미널 창에서 로그를 볼 수 있음
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {
-        "console": {
-            "level": "DEBUG",
-            "class": "logging.StreamHandler",
-        },
-    },
-    "loggers": {
-        "django.db.backends": {
-            "handlers": ["console"],
-            "level": "DEBUG",
-        },
-    },
-}
