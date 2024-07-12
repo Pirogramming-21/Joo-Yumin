@@ -30,7 +30,10 @@ def review_detail(request, pk):
     return render(request, 'review_detail.html', context)
 
 def review_update(request, pk):
-    review = get_object_or_404(Review, pk=pk)
+    review = get_object_or_404(Review, id=pk)
+    context = {
+        'review': review
+    }
     if request.method=="POST":
         review.title=request.POST["title"]
         review.release=request.POST["release"]
@@ -41,13 +44,17 @@ def review_update(request, pk):
         review.running_time=request.POST["running_time"]
         review.content=request.POST["content"]
 
-        review.save() # 기존에 있던 pk의 값을 바꾸고 재저장 하고싶다!
+        review.save() 
 
-        return redirect(f"/{pk}")
+        return redirect(f"/{pk}", id=pk)
+    
+    
+    return render(request, 'review_update.html', context) 
 
-    else:
-        # GET 요청일 경우, 기존 데이터를 폼 없이 보여줌
-        context = {
-            'review': review
-        }
-    return render(request, 'review_update.html', context) # context를 통해 템플릿에 전달
+def review_delete(request, pk):
+    if request.method=="POST":
+        review = get_object_or_404(Review, id=pk)
+        review.delete()
+
+        return redirect("/")
+    return redirect("/")
