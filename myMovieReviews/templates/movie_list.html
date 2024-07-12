@@ -1,0 +1,8 @@
+<h1>글 목록</h1>
+
+    {% for list in lists %}
+        <a href="/lists/{{list.id}}"><h2>{{list.id}}. {{ list.title }}</h2></a>
+        
+    {% endfor %}
+
+<a href="/lists/create">게시글 등록</a>
