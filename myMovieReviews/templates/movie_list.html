@@ -1,8 +1,11 @@
 <h1>글 목록</h1>
 
-    {% for list in lists %}
-        <a href="/lists/{{list.id}}"><h2>{{list.id}}. {{ list.title }}</h2></a>
+    {% for review in reviews %}
+        <a href="/lists/{{review.id}}"><h2>{{ review.title }}</h2></a>
+        <div>{{ review.release }}</div>
+        <div>{{ review.genre }}</div>
+        <div>{{ review.score }}</div>
         
     {% endfor %}
 
-<a href="/lists/create">게시글 등록</a>
+<a href="/lists/create">게시글 등록</a>  
