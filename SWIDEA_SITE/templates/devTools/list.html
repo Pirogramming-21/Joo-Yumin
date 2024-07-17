@@ -4,9 +4,9 @@
 {%block head%}
   <title>개발툴 관리</title>
 {%endblock%}
-
+<h2>hello</h2>
 {% block content %}
-<div class="tool-list">
+<div class="post-list">
     {% for devTool in devTools %}
         <div>
             <a href="{% url 'devTools:detail' devTool.pk%}" class="title">

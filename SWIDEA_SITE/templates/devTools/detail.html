@@ -2,22 +2,25 @@
 {% load static %}
 
 {% block content %}
-    <h1 style="color: green; font-size: 40px">{{devTool.name}}</h1>
-        <h2 class="my-3">{{devTool.name}}</h2>
-        <p>{{devTool.kind}}</p>
-        <p>{{devTool.content}}</p>
+    <h1 style="color: green; font-size: 40px">{{ devTool.name }}</h1>
+    <h2 class="my-3">{{ devTool.name }}</h2>
+    <p>{{ devTool.kind }}</p>
+    <p>{{ devTool.content }}</p>
     <hr />
 
     {% if posts %}
-                <ul>
-                    {% for post in posts %}
-                        <li><a href="{% url 'posts:detail' post.title.pk %}">{{ post.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% else %}
+        <ul>
+            {% for post in posts %}
+                <li><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No related posts found.</p>
+    {% endif %}
+
     <form action="{% url 'devTools:delete' devTool.pk %}" method="POST">
-        {%csrf_token%}
+        {% csrf_token %}
         <a href="{% url 'devTools:update' devTool.pk %}" class="btn btn-primary">수정하기</a>
         <button type="submit" class="btn btn-danger">삭제하기</button>
     </form>
-{% endblock content %}
+{% endblock %}
