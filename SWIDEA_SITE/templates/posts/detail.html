@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 style="color: green; font-size: 40px">{{post.title}}</h1>
+    {% if post.photo.url != null and post.photo.url != '' %}
+        <img src="{{post.photo.url}}" alt="아이디어 사진" />
+    {% else %}
+        <img src="{% static 'posts/image/no_img.png' %}" alt="대체 텍스트" />
+    {% endif %}
+        <h2 class="my-3">{{post.title}}</h2>
+        <h2 class="my-3">{{post.content}}</h2>
+        <p>작성일: {{post.created_date}}</p>
+        <p>수정일: {{post.updated_date}}</p>
+        <a href="?sort={{ key }}" class="{% if key == current_sort %}active{% endif %}">개발툴: {{devTool.name}}</a>
+        
+
+
+    <form action="{% url 'posts:detail' post.pk %}" method="POST">
+        {% csrf_token %}
+        {% if liked %}
+            <button type="submit" class="btn btn-danger">찜 취소하기</button>
+        {% else %}
+            <button type="submit" class="btn btn-primary">찜하기</button>
+        {% endif %}
+    </form>
+
+    <hr />
+    <form action="{% url 'posts:delete' post.pk %}" method="POST">
+        {%csrf_token%}
+        <a href="{% url 'posts:update' post.pk %}" class="btn btn-primary">수정하기</a>
+        <button type="submit" class="btn btn-danger">삭제하기</button>
+    </form>
+{% endblock content %}

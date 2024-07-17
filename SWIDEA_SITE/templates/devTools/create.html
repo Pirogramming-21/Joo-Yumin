@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block head%}
+  <title>개발툴 등록</title>
+{%endblock%}
+
+{%block content%}
+    <form
+        action="{% url 'devTools:create' %}"
+        method="post"
+        enctype="multipart/form-data"
+    >
+        {%csrf_token%} {{form.as_p}}
+        <button class="btn btn-success">등록하기</button>
+    </form>
+    </div>
+{%endblock%}
