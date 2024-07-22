@@ -18,7 +18,7 @@ def main(request):
 
 def post_new(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('main')
@@ -38,6 +38,7 @@ def post_new(request):
 def delete(request, pk):
     Post.objects.get(id=pk).delete()
     return redirect('main')
+
 
 def detail(request, pk):
   post = Post.objects.get(id=pk)

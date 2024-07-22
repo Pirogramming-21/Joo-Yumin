@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
-    <h1 style="color: green; font-size: 40px">{{post.title}}</h1>
+    <h1 style="color: black; font-size: 30px; font-weight: bold; margin-top: 10px;" >{{post.title}}</h1>
     {% if post.photo.url != null and post.photo.url != '' %}
-        <img src="{{post.photo.url}}" alt="이미지" />
+        <img src="{{post.photo.url}}" alt="이미지" class="input-img"/>
     {% else %}
         <img src="{% static 'image/no_img.png' %}" alt="대체텍스트" />
     {% endif %}
@@ -14,10 +14,7 @@
 
 
     <hr />
-    <form action="{% url 'detail' post.pk%}" method="POST">
-        {%csrf_token%}
-        <button type="submit" class="btn btn-danger">삭제하기</button>
-    </form>
+    
 
     <div class="comments">
         
@@ -32,11 +29,17 @@
                 <div class="comment comment-id-{{ comment.id }}">
                     <div class="comment-content">{{ comment.content }}</div>
                     <div class="comment-date">{{ comment.create_date|date:"Y-m-d H:i:s" }}</div>
-                    <div class="btn btn-primary" onclick="deleteComment({{ comment.id }})">댓글 삭제</div>
+                    <div class="btn btn-light" onclick="deleteComment({{ comment.id }})" value="댓글 삭제">댓글 삭제</div>
                 </div>
             {% endfor %}
         </div>
     </div>
+    <footer>
+    <form action="{% url 'delete' post.pk %}" method="POST">
+        {%csrf_token%}
+        <button type="submit" class="btn btn-danger">삭제하기</button>
+    </form>
+    </footer>
     
 {% endblock content %}
 

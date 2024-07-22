@@ -17,9 +17,7 @@
 <body>
     <header>
         <div class="header__container">
-            <div class="header__text">
-                 Pirostagram 
-            </div>
+            <a href="{% url 'main'%}" class="header__text">pirostagram</a>
         </div>
     </header>
     
@@ -31,7 +29,7 @@
 </body>
 <footer>
     <a href="{% url 'post_new' %}">
-        <button type="button" class="btn btn-warning">게시글 추가</button>
+        <button type="button" class="btn btn-secondary btn-add">게시글 추가</button>
     </a>
 </footer>
 </html>

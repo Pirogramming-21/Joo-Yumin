@@ -8,7 +8,7 @@
             <div class="card post__container post-id-{{ post.id }}">
                 <div class="card-body">
                     {% if post.photo.url != null and post.photo.url != '' %}
-                        <img src="{{post.photo.url}}" alt="대체텍스트">
+                        <img src="{{post.photo.url}}" alt="대체텍스트" class="input-img">
                     {% else %}
                         <img src="{% static 'image/no_img.png' %}" alt="">
                     {% endif %}
@@ -18,7 +18,7 @@
                     </a>
                     <div class="card-text">{{ post.content}}</div>
                     <div class="card-text">{{ post.create_date|date:"Y-m-d H:i:s" }}</div>
-                    <div class="btn btn-primary post__like" onclick="onClickLike( {{ post.id }} )">Like {{ post.like }}</div>
+                    <div class="btn btn-light post__like" onclick="onClickLike( {{ post.id }} )">Like {{ post.like }}</div>
                 </div>
             </div>
         {% endfor %}
