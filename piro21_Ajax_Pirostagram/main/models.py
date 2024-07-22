@@ -9,3 +9,8 @@ class Post(models.Model):
     comment = models.TextField()
     photo = models.ImageField('이미지', blank=True, upload_to='posts/%Y%m%d')
     created_date = models.DateTimeField('작성일', default=timezone.now)
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    content = models.TextField()
+    create_date = models.DateTimeField(auto_now_add=True)

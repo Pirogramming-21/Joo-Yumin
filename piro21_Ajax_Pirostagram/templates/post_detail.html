@@ -2,21 +2,106 @@
 {% load static %}
 
 {% block content %}
-  <h1 style="color: green; font-size: 40px">{{post.title}}</h1>
-  {% if post.photo.url != null and post.photo.url != '' %}
-    <img src="{{post.photo.url}}" alt="이미지" />
-  {% else %}
-    <img src="{% static 'image/no_img.png' %}" alt="대체텍스트" />
-  {% endif %}
-  <h2 class="my-3">{{post.content}}</h2>
-  <p>작성일: {{post.created_date}}</p>
-  <p>좋아요: {{post.like}}</p>
+    <h1 style="color: green; font-size: 40px">{{post.title}}</h1>
+    {% if post.photo.url != null and post.photo.url != '' %}
+        <img src="{{post.photo.url}}" alt="이미지" />
+    {% else %}
+        <img src="{% static 'image/no_img.png' %}" alt="대체텍스트" />
+    {% endif %}
+    <h2 class="my-3">{{post.content}}</h2>
+    <p>작성일: {{post.created_date}}</p>
+    <p>좋아요: {{post.like}}</p>
 
 
-  <hr />
-  <form action="{% url 'delete' post.pk %}" method="POST">
-    {%csrf_token%}
-    <button type="submit" class="btn btn-danger">삭제하기</button>
-  </form>
+    <hr />
+    <form action="{% url 'detail' post.pk%}" method="POST">
+        {%csrf_token%}
+        <button type="submit" class="btn btn-danger">삭제하기</button>
+    </form>
+
+    <div class="comments">
+        
+    </div>
+    <div class="post-id-{{ post.id }}">
+        <div class="comment-form">
+            <textarea id="comment-content-{{ post.id }}" placeholder="댓글을 입력하세요..."></textarea>
+            <div class="btn btn-primary" onclick="addComment({{ post.id }})">댓글 입력</div>
+        </div>
+        <div class="comments">
+            {% for comment in post.comments.all %}
+                <div class="comment comment-id-{{ comment.id }}">
+                    <div class="comment-content">{{ comment.content }}</div>
+                    <div class="comment-date">{{ comment.create_date|date:"Y-m-d H:i:s" }}</div>
+                    <div class="btn btn-primary" onclick="deleteComment({{ comment.id }})">댓글 삭제</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
 {% endblock content %}
 
+
+{% block script %}
+<script>
+    window.onload = () => {
+
+        const requestComment = new XMLHttpRequest();
+        const requestDeleteComment = new XMLHttpRequest();
+
+
+        window.addComment = (postId) => {
+            const url = "/add_comment/";
+            const content = document.getElementById(`comment-content-${postId}`).value;
+            requestComment.open("POST", url, true);
+            requestComment.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+            requestComment.send(JSON.stringify({ post_id: postId, content: content }));
+
+            requestComment.onreadystatechange = () => {
+                if (requestComment.readyState === XMLHttpRequest.DONE) {
+                    if (requestComment.status < 400) {
+                        const response = JSON.parse(requestComment.response);
+                        const commentsContainer = document.querySelector(`.post-id-${postId} .comments`);
+
+                        if (commentsContainer) {
+                        const commentHtml = `
+                            <div class="comment comment-id-${response.id}">
+                                <div class="comment-content">${response.content}</div>
+                                <div class="comment-date">${response.create_date}</div>
+                                <button onclick="deleteComment(${response.id})">Delete</button>
+                            </div>
+                        `;
+                        commentsContainer.innerHTML += commentHtml;
+                    } else {
+                        console.error(`Comments container for post ID ${postId} not found.`);
+                    }
+
+                    document.getElementById(`comment-content-${postId}`).value = '';
+                }
+            }
+        };
+    };
+
+
+        window.deleteComment = (commentId) => {
+            const url = "/delete_comment/";
+            requestDeleteComment.open("POST", url, true);
+            requestDeleteComment.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+            requestDeleteComment.send(JSON.stringify({ comment_id: commentId }));
+
+            requestDeleteComment.onreadystatechange = () => {
+                if (requestDeleteComment.readyState === XMLHttpRequest.DONE) {
+                    if (requestDeleteComment.status < 400) {
+                        document.querySelector(`.comment-id-${commentId}`).remove();
+                    }
+                }
+            };
+        };
+    };
+</script>
+{% endblock %}

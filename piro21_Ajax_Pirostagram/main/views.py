@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Post
-from .forms import PostForm
+from .models import Post, Comment
+from .forms import PostForm, CommentForm
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
@@ -41,9 +41,28 @@ def delete(request, pk):
 
 def detail(request, pk):
   post = Post.objects.get(id=pk)
-  ctx = {'post':post}
-  return render(request,'post_detail.html',ctx)
+  comment_form = CommentForm()
+  ctx = {'post':post, 'comment_form': comment_form}
+  return render(request, 'post_detail.html', ctx)
 
+@csrf_exempt
+def add_comment(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        post_id = data['post_id']
+        content = data['content']
+        post =Post.objects.get(id=post_id)
+        comment = Comment.objects.create(post=post, content=content)
+        return JsonResponse({'id': comment.id, 'content': comment.content, 'create_date': comment.create_date.strftime('%Y-%m-%d %H:%M:%S')})
+
+@csrf_exempt
+def delete_comment(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        comment_id = data['comment_id']
+        comment = Comment.objects.get(id=comment_id)
+        comment.delete()
+        return JsonResponse({'result': 'success'})
 
 @csrf_exempt
 def like(request):

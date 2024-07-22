@@ -12,6 +12,7 @@
                     {% else %}
                         <img src="{% static 'image/no_img.png' %}" alt="">
                     {% endif %}
+                    <br>
                     <a href="{% url 'detail' post.pk%}" class="title">
                         {{post.title}}
                     </a>
