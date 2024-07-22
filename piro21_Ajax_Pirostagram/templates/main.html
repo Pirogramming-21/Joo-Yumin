@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+ 
+{% block content %}
+    <div class="main__container">
+        {% for post in posts %}
+            <div class="card post__container post-id-{{ post.id }}">
+                <div class="card-body">
+                    {% if post.photo.url != null and post.photo.url != '' %}
+                        <img src="{{post.photo.url}}" alt="대체텍스트">
+                    {% else %}
+                        <img src="{% static 'image/no_img.png' %}" alt="">
+                    {% endif %}
+                    <a href="{% url 'detail' post.pk%}" class="title">
+                        {{post.title}}
+                    </a>
+                    <div class="card-text">{{ post.content}}</div>
+                    <div class="card-text">{{ post.create_date|date:"Y-m-d H:i:s" }}</div>
+                    <div class="btn btn-primary post__like" onclick="onClickLike( {{ post.id }} )">Like {{ post.like }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block script %}
+<script>
+
+    const requestLike = new XMLHttpRequest();
+
+    window.onClickLike = (id) => {
+        const url = "like/";
+        requestLike.open("POST", url, true);
+        requestLike.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        requestLike.send(`id=${id}`);
+    }
+
+
+
+    const strip = (string) => {
+        return string.replace(/^\s+|\s+$/g, "");
+    };
+
+    requestLike.onreadystatechange = () => {
+        if (requestLike.readyState === XMLHttpRequest.DONE) {
+            if (requestLike.status < 400) {
+                const {id} = JSON.parse(requestLike.response);
+                const element = document.querySelector(`.post-id-${id} .post__like`);
+                const originHTML = element.innerHTML;
+                const [buttonType, num] = originHTML.split(" ");
+                const count = Number(num) + 1;
+
+                element.innerHTML = `Like ${count}`;
+            }
+        }
+    }
+
+</script>
+{% endblock %}

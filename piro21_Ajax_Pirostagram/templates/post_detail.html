@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+  <h1 style="color: green; font-size: 40px">{{post.title}}</h1>
+  {% if post.photo.url != null and post.photo.url != '' %}
+    <img src="{{post.photo.url}}" alt="이미지" />
+  {% else %}
+    <img src="{% static 'image/no_img.png' %}" alt="대체텍스트" />
+  {% endif %}
+  <h2 class="my-3">{{post.content}}</h2>
+  <p>작성일: {{post.created_date}}</p>
+  <p>좋아요: {{post.like}}</p>
+
+
+  <hr />
+  <form action="{% url 'delete' post.pk %}" method="POST">
+    {%csrf_token%}
+    <button type="submit" class="btn btn-danger">삭제하기</button>
+  </form>
+{% endblock content %}
+
